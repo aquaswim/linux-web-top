@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Linux Htop - {{.Hostname}}</title>
+    <link rel="stylesheet" href="public/style.css">
+</head>
+<body>
+<h1>{{.Hostname}} Statistics</h1>
+<div class="stat-container">
+    <div class="stat-box">
+        <h2 class="stat-header">CPU Usage</h2>
+        <div class="stat-chart-wrapper">
+            <canvas class="stat-chart" id="cpu-usage"></canvas>
+        </div>
+    </div>
+    <div class="stat-box">
+        <h2 class="stat-header">Memory Usage</h2>
+        <div class="stat-chart-wrapper">
+            <canvas class="stat-chart" id="memory-usage"></canvas>
+        </div>
+    </div>
+    <div class="stat-box">
+        <h2 class="stat-header">Network Bandwidth</h2>
+        <div class="stat-value" id="network-usage">
+            Download: 0MB | Upload: 0 MB
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="public/main.js"></script>
+</body>
+</html>
