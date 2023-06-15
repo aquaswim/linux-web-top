@@ -5,8 +5,8 @@ import (
 	"linux-web-top/data"
 )
 
-func PopulateNCpu(stat *data.Stat) error {
-	statInfo, err := linux.ReadStat("/proc/stat")
+func PopulateNCpu(procPath string, stat *data.Stat) error {
+	statInfo, err := linux.ReadStat(procPath + "/stat")
 	if err != nil {
 		return err
 	}
@@ -15,8 +15,8 @@ func PopulateNCpu(stat *data.Stat) error {
 	return nil
 }
 
-func PopulateMemInfo(stat *data.Stat) error {
-	meminfo, err := linux.ReadMemInfo("/proc/meminfo")
+func PopulateMemInfo(procPath string, stat *data.Stat) error {
+	meminfo, err := linux.ReadMemInfo(procPath + "/meminfo")
 	if err != nil {
 		return err
 	}
@@ -27,8 +27,8 @@ func PopulateMemInfo(stat *data.Stat) error {
 	return nil
 }
 
-func PopulateCpuInfo(stat *data.Stat) error {
-	statInfo, err := linux.ReadStat("/proc/stat")
+func PopulateCpuInfo(procPath string, stat *data.Stat) error {
+	statInfo, err := linux.ReadStat(procPath + "/stat")
 	if err != nil {
 		return err
 	}
@@ -47,8 +47,8 @@ func PopulateCpuInfo(stat *data.Stat) error {
 	return nil
 }
 
-func PopulateNetworkBandwith(stat *data.Stat) error {
-	netInfos, err := linux.ReadNetworkStat("/proc/net/dev")
+func PopulateNetworkBandwith(procPath string, stat *data.Stat) error {
+	netInfos, err := linux.ReadNetworkStat(procPath + "/net/dev")
 	if err != nil {
 		return err
 	}

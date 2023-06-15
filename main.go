@@ -15,11 +15,13 @@ import (
 
 var tickDuration time.Duration
 var listenAddr string
+var procPath string
 
 func init() {
 	var durationStr string
 	flag.StringVar(&durationStr, "d", "3s", "tick duration")
 	flag.StringVar(&listenAddr, "l", ":3000", "listen address")
+	flag.StringVar(&procPath, "p", "/proc", "proc path")
 	flag.Parse()
 	d, err := time.ParseDuration(durationStr)
 	if err != nil {
@@ -46,22 +48,22 @@ func main() {
 	stop := make(chan bool)
 	go func() {
 		stat := data.Stat{}
-		if err := util.PopulateNCpu(&stat); err != nil {
+		if err := util.PopulateNCpu(procPath, &stat); err != nil {
 			log.Panicln("Failed to read /proc/stat:", err)
 		}
 		for {
 			select {
 			case <-ticker.C:
 				if hub.IsNotEmpty() {
-					if err := util.PopulateMemInfo(&stat); err != nil {
+					if err := util.PopulateMemInfo(procPath, &stat); err != nil {
 						log.Println("Failed to read memory info", err)
 					}
 
-					if err := util.PopulateCpuInfo(&stat); err != nil {
+					if err := util.PopulateCpuInfo(procPath, &stat); err != nil {
 						log.Println("Failed to read cpu stats", err)
 					}
 
-					if err := util.PopulateNetworkBandwith(&stat); err != nil {
+					if err := util.PopulateNetworkBandwith(procPath, &stat); err != nil {
 						log.Println("Failed to read network bandwith:", err)
 					}
 					hub.Broadcast(&stat)

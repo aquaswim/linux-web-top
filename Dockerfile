@@ -7,4 +7,4 @@ FROM alpine
 COPY --from=builder /app/linux-web-top /usr/local/bin/linux-web-top
 EXPOSE 3000
 
-ENTRYPOINT ["linux-web-top" , "-l=:3000"]
+ENTRYPOINT ["linux-web-top" , "-l=:3000", "-p=hostproc"]
