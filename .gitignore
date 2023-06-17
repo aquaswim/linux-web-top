@@ -8,6 +8,7 @@
 *.dll
 *.so
 *.dylib
+linux-web-top
 
 # Test binary, built with `go test -c`
 *.test
