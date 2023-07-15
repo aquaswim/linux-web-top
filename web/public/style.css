@@ -6,6 +6,53 @@ h1 {
     text-align: center;
 }
 
+h2 {
+    min-width: none;
+    height: 60px;
+}
+
 .stat-chart-wrapper{
     height: 45vh;
+}
+
+.stat-container{
+    flex-direction: column;
+    text-align: center;
+}
+
+.stat-box{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+
+.stat-box-2 .stat-box-3 {
+    width: 100%;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
+
+@media screen and (min-width: 1024px) {
+    .stat-container{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .stat-box-1, .stat-box-2{
+        border-right: 2px solid #000000;
+    }
+   
+}
+@media screen and (max-width: 1023px) {
+    .stat-box-1, .stat-box-2{
+        border-bottom: 2px solid #000000;
+    }
 }

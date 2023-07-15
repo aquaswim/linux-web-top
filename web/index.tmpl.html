@@ -11,22 +11,28 @@
 <body>
 <h1>{{.Hostname}} Statistics</h1>
 <div class="stat-container">
-    <div class="stat-box">
-        <h2 class="stat-header">CPU Usage</h2>
-        <div class="stat-chart-wrapper">
-            <canvas class="stat-chart" id="cpu-usage"></canvas>
+    <div class="stat-box stat-box-1">
+        <div>
+            <h2 class="stat-header">CPU Usage</h2>
+            <div class="stat-chart-wrapper">
+                <canvas style="width: 500px;" class="stat-chart" id="cpu-usage"></canvas>
+            </div>
         </div>
     </div>
-    <div class="stat-box">
-        <h2 class="stat-header">Memory Usage</h2>
-        <div class="stat-chart-wrapper">
-            <canvas class="stat-chart" id="memory-usage"></canvas>
+    <div class="stat-box stat-box-2">
+        <div>
+            <h2 class="stat-header">Memory Usage</h2>
+            <div class="stat-chart-wrapper">
+                <canvas class="stat-chart" id="memory-usage"></canvas>
+            </div>
         </div>
     </div>
-    <div class="stat-box">
-        <h2 class="stat-header">Network Bandwidth</h2>
-        <div class="stat-value" id="network-usage">
-            Download: 0MB | Upload: 0 MB
+    <div class="stat-box stat-box-3">
+        <div>
+            <h2 class="stat-header">Network Bandwidth</h2>
+            <div class="stat-value" id="network-usage">
+                Download: 0MB | Upload: 0 MB
+            </div>
         </div>
     </div>
 </div>
