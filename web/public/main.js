@@ -82,7 +82,12 @@ window.onload = function () {
     }
 
     if (window["WebSocket"]) {
-        conn = new WebSocket("ws://" + document.location.host + "/ws/stats");
+        let protocol = "ws://";
+        if (location.protocol === 'https:') {
+           protocol = "wss://"
+        }
+
+        conn = new WebSocket(protocol + document.location.host + "/ws/stats");
         conn.onclose = function (evt) {
             console.log("connection closed", evt);
             alert("Disconected")
